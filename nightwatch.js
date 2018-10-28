@@ -1,0 +1,1 @@
+require('C:/Users/Marianna.Samylova/WebstormProjects/SponaTests_v1/nightwatch/bin/runner.js');

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="longtermgroup.long_term_group"
+    errors="1" failures="0" hostname="" id="" package="longtermgroup" skipped="0"
+    tests="1" time="0.02200" timestamp="Sat, 27 Oct 2018 15:29:21 GMT">
+  
+    <testcase name="Submit long term" classname="longtermgroup.long_term_group" time="0.02200" assertions="0">
+    </testcase>
+  
+
+  
+    <system-err>
+        Error while running [Longtermgroup / Long Term Group / Submit long term]:
+
+  TypeError: client.navigate is not a function
+    at Object.Submit long term (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\tests\longtermgroup\long_term_group.js:13:16)
+    at Module.call (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\lib\runner\module.js:62:34)
+    at C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\lib\runner\testcase.js:70:29
+    at _fulfilled (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\node_modules\q\q.js:834:54)
+    at self.promiseDispatch.done (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\node_modules\q\q.js:863:30)
+    at Promise.promise.promiseDispatch (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\node_modules\q\q.js:796:13)
+    at C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\node_modules\q\q.js:556:49
+    at runSingle (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\node_modules\q\q.js:137:13)
+    at flush (C:\Users\Marianna.Samylova\WebstormProjects\SponaTests_v1\nightwatch\node_modules\q\q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>

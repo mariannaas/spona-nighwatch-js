@@ -1,0 +1,18 @@
+{
+  "name": "sponatests_v1",
+  "version": "1.0.0",
+  "description": "Functional tests ",
+  "main": "nightwatch.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node nightwatch.js"
+  },
+  "author": "MS",
+  "license": "ISC",
+  "dependencies": {
+    "nightwatch": "file:nightwatch",
+    "nightwatch-commands": "^3.0.0"
+  }
+}

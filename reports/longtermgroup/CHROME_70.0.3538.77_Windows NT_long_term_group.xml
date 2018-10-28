@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="longtermgroup.long_term_group"
+    errors="0" failures="0" hostname="" id="" package="longtermgroup" skipped="0"
+    tests="1" time="14.12" timestamp="Sat, 27 Oct 2018 15:31:22 GMT">
+  
+    <testcase name="Submit long term" classname="longtermgroup.long_term_group" time="14.12" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
