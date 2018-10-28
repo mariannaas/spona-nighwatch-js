@@ -1,6 +1,7 @@
+let createLongTermAccommodationPage;
 module.exports = {
-    tags: ['longTerm', 'sanity'],
-    'Submit long term': function (client) {
+
+    before(client) {
         const loginPage = client.page.login_spona();
         loginPage.navigate();
         loginPage.loginToSystem('marianna.ask@gmail.com', '2468');
@@ -8,15 +9,30 @@ module.exports = {
         let homePage = client.page.home();
         homePage.expect.element('@homeHeader').to.be.present.after(2000);
         homePage.expect.element('@homeHeader').to.contain.text('Informačný systém pre ubytovanie');
-        client.pause(2000);
-        //homePage.clickElementOnThePage('createLongTermAccomodation');
-        client.url("http://ubytovanie.sponadev.qity.sk/lresidence/create");
-        client.pause(2000);
-        let longTermCreatePage = client.page.longterm_accomodationCreateForPerson();
-        longTermCreatePage.submitLongTermReservation();
-
+    },
+    beforeEach(client) {
+        createLongTermAccommodationPage = client.page.longterm_accomodation_create_for_person();
+        createLongTermAccommodationPage.navigate();
+   },
+    after(client) {
         client.end();
     },
 
+    tags: ['longTerm', 'sanity'],
+    'Submit long term - positive case': function (client) {
+        createLongTermAccommodationPage.submitLongTermReservation('correct_data_test.json');
+        let personCardPage = client.page.longterm_accommodation_person_card();
+        personCardPage.expect.element('@personCardHeader').to.be.present.after(2000);
+        personCardPage.expect.element('@personCardHeader').to.contain.text('Ubytovacia Karta');
+    },
+    'Try to submit long term with invalid end date': function () {
+        createLongTermAccommodationPage.submitLongTermReservation('invalid_end_reservation_date_test.json');
+        createLongTermAccommodationPage.expect.element('@alertMessageText').to.be.present.after(3000);
+        createLongTermAccommodationPage.expect.element('@alertMessageText').to.contain.text('Termin zacatia ubytovania je nespravny.');
+    },
+    'Try to submit long term with invalid birth date': function () {
+        createLongTermAccommodationPage.submitLongTermReservation('invalid_birth_date_test.json');
+        createLongTermAccommodationPage.expect.element('@alertMessageText').to.be.present.after(3000);
+    }
 
 };

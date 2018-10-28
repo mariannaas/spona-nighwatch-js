@@ -1,10 +1,12 @@
-var person = require('../test_data/longterm/positiveTestCase.json');
+const pathToTestData = './test_data/longterm/%s';
+const fs = require('fs');
+let util = require('util');
 
-
-let createLongTermAccomodationForPersonCommands = {
-    submitLongTermReservation: function () {
-        let field;
-        for (field in person) {
+let createLongTermAccommodationForPersonCommands = {
+    submitLongTermReservation: function (fileName) {
+        let rawData = fs.readFileSync(util.format(pathToTestData, fileName));
+        let person = JSON.parse(rawData);
+        for (let field in person) {
             switch (field) {
                 case 'firstName':
                     this.setValue('@firstNameTextInput', person[field]);
@@ -36,17 +38,20 @@ let createLongTermAccomodationForPersonCommands = {
                 case 'phone':
                     this.setValue('@phoneTextInput', person[field]);
                     break;
-                // case 'roomId':
-                //     this.setValue('@roomIdTextInput', person[field]);
-                //     break;
+                case 'zip':
+                    this.setValue('@zipTextInput', person[field]);
+                    break;
                 case 'email':
                     this.setValue('@emailTextInput', person[field]);
                     break;
-                case 'accomodationCategory':
-                    this.setValue('@accomodationPriceCategorySelect', person[field]);
+                case 'accommodationCategory':
+                    this.setValue('@accommodationCategory', person[field]);
                     break;
                 case 'residenceAuthorization':
                     this.setValue('@residenceAuthorizationTextInput', person[field]);
+                    break;
+                case 'room':
+                    this.setValue('@roomTextInput', person[field]);
                     break;
                 default:
                     break;
@@ -60,12 +65,8 @@ let createLongTermAccomodationForPersonCommands = {
 
 module.exports = {
     url: 'http://ubytovanie.sponadev.qity.sk/lresidence/create',
-    commands: [createLongTermAccomodationForPersonCommands],
+    commands: [createLongTermAccommodationForPersonCommands],
     elements: {
-        shortTermAccomodationCreateButton: {
-            selector: "//a[contains(@href, 'http://ubytovanie.sponadev.qity.sk/sresidence/create')]",
-            locateStrategy: 'xpath'
-        },
         firstNameTextInput: {
             selector: '#first_name'
         },
@@ -90,6 +91,9 @@ module.exports = {
         cityTextInput: {
             selector: '#city'
         },
+        roomTextInput: {
+            selector: '#room'
+        },
         zipTextInput: {
             selector: '#zip'
         },
@@ -108,19 +112,19 @@ module.exports = {
         emailTextInput: {
             selector: '#email'
         },
-        accomodationPriceCategorySelect: {
+        accommodationCategory: {
             selector: '#accomodation_type_id'
         },
         residenceAuthorizationTextInput: {
             selector: '#residence_authorization'
         },
-        // givenItemsButton: {
-        //     //TODO
-        // },
         submitReservationButton: {
             selector: '//input[@value="Pridať dlhodobé ubytovanie"]',
             locateStrategy: 'xpath'
+        },
+        alertMessageText: {
+            selector: '//*[@class="alert alert-danger"]/li',
+            locateStrategy: 'xpath',
         }
-
     }
 };

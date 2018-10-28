@@ -1,4 +1,4 @@
-var util = require('util');
+let util = require('util');
 
 const elementFormat ='@%s';
 
@@ -18,7 +18,7 @@ module.exports = {
             selector: '//h3[@class="sectionHeaderText"]',
             locateStrategy: 'xpath'
         },
-        shortTermAccomodation: {
+        shortTermAccommodation: {
             selector: '//a[contains(@href, "http://ubytovanie.sponadev.qity.sk/sresidence")]',
             locateStrategy: 'xpath'
         },
@@ -26,7 +26,7 @@ module.exports = {
             selector: '//a[contains(@href, "http://ubytovanie.sponadev.qity.sk/webBooking")]',
             locateStrategy: 'xpath'
         },
-        longTermAccomodation: {
+        longTermAccommodation: {
             selector: '//a[contains(@href, "http://ubytovanie.sponadev.qity.sk/lresidence")]',
             locateStrategy: 'xpath'
         },
@@ -41,12 +41,12 @@ module.exports = {
                 locateStrategy: 'xpath'
             },
 
-        createShortTermAccomodation: {
+        createShortTermAccommodation: {
             selector: '//a[contains(@href, "http://ubytovanie.sponadev.qity.sk/sresidence/create")]',
             locateStrategy: 'xpath'
 
         },
-        createLongTermAccomodation: {
+        createLongTermAccommodation: {
             selector: '//div/p/a[contains(@href, "http://ubytovanie.sponadev.qity.sk/lresidence/create")]',
             locateStrategy: 'xpath'
         }

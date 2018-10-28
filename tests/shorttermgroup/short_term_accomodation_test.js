@@ -9,7 +9,7 @@ module.exports = {
         let homePage = client.page.home();
         homePage.expect.element('@homeHeader').to.be.present.after(2000);
         homePage.expect.element('@homeHeader').to.contain.text('Informačný systém pre ubytovanie');
-        homePage.clickElementOnThePage('shortTermAccomodation');
+        homePage.clickElementOnThePage('shortTermAccommodation');
         client.pause(2000);
         client.end();
     }

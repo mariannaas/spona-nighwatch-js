@@ -1,8 +1,8 @@
 {
   "firstName": "John",
   "lastName": "Snow",
-  "startDate": "25.02.2019",
-  "endDate":"15.05.2019",
+  "startDate": "25.02.2020",
+  "endDate":"15.05.2020",
   "idCard": "HF99999",
   "birthDate": "19.11.1995",
   "street":"Test Avenue 5",
@@ -10,9 +10,9 @@
   "zip":"61105",
   "country":"Barbados",
   "phone": "123123123",
-  "roomId":"234",
+  "room":"234",
   "email":"test@testskspona.com",
-  "accomodationCategory":"jednoposteľová izba/120",
+  "accommodationCategory":"jednoposteľová izba/120",
   "residenceAuthorization":"Jestem poscignuty"
 
 }

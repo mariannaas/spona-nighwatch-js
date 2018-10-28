@@ -1,0 +1,18 @@
+{
+  "firstName": "InvalidEndDate",
+  "lastName": "Test",
+  "startDate": "25.02.2020",
+  "endDate":"25.01.2020",
+  "idCard": "HF99999",
+  "birthDate": "15.02.1992",
+  "street":"Test Avenue 5",
+  "city":"New York",
+  "zip":"61105",
+  "country":"Barbados",
+  "phone": "123123123",
+  "room":"234",
+  "email":"test@testskspona.com",
+  "accommodationCategory":"jednoposteľová izba/120",
+  "residenceAuthorization":"Jestem poscignuty"
+
+}

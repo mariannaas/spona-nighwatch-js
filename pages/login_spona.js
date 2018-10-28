@@ -1,6 +1,4 @@
-const elementFormat ='@%s';
-
-var loginCommands = {
+let loginCommands = {
     loginToSystem: function (email, password) {
         this.setValue('@emailInput', email)
             .setValue('@passwordInput', password)

@@ -1,5 +1,5 @@
 let shortTermAccomodationCommands = {
-    createShortTermAccomodation: function (name) {
+    createShortTermAccommodation: function (name) {
         let element = util.format(elementFormat,name);
         this.click(element);
         return this;
