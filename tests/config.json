@@ -1,0 +1,22 @@
+{
+  "super_admin": {
+    "email": "marianna.ask@gmail.com",
+    "password": "2468"
+  },
+  "admin": {
+    "email": "admin@test.sk",
+    "password": "2468"
+  },
+  "user": {
+    "email": "user@test.sk",
+    "password": "2468"
+  },
+  "doorman": {
+    "email": "doorman@test.sk",
+    "password": "2468"
+  },
+  "crz_user": {
+    "email": "crz@test.sk",
+    "password": "2468"
+  }
+}

@@ -1,10 +1,11 @@
+const config = require('../config.json');
 let createLongTermAccommodationPage;
-module.exports = {
 
+module.exports = {
     before(client) {
         const loginPage = client.page.login_spona();
         loginPage.navigate();
-        loginPage.loginToSystem('marianna.ask@gmail.com', '2468');
+        loginPage.loginToSystem(config.admin.email, config.admin.password);
         client.pause(2000);
         let homePage = client.page.home();
         homePage.expect.element('@homeHeader').to.be.present.after(2000);

@@ -5,9 +5,9 @@
 
   <testsuite name="longtermgroup.long_term_group"
     errors="0" failures="0" hostname="" id="" package="longtermgroup" skipped="0"
-    tests="3" time="14.72" timestamp="Sun, 28 Oct 2018 19:49:06 GMT">
+    tests="3" time="14.17" timestamp="Sun, 28 Oct 2018 21:21:18 GMT">
   
-    <testcase name="Submit long term - positive case" classname="longtermgroup.long_term_group" time="10.42" assertions="4">
+    <testcase name="Submit long term - positive case" classname="longtermgroup.long_term_group" time="9.834" assertions="4">
 
     
 
@@ -18,14 +18,14 @@
     
     </testcase>
   
-    <testcase name="Try to submit long term with invalid end date" classname="longtermgroup.long_term_group" time="2.428" assertions="2">
+    <testcase name="Try to submit long term with invalid end date" classname="longtermgroup.long_term_group" time="2.457" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Try to submit long term with invalid birth date" classname="longtermgroup.long_term_group" time="1.865" assertions="1">
+    <testcase name="Try to submit long term with invalid birth date" classname="longtermgroup.long_term_group" time="1.882" assertions="1">
 
     
     </testcase>
