@@ -12,12 +12,15 @@ let createLongTermAccommodationForPersonCommands = {
         for (let field in person) {
             switch (field) {
                 case 'firstName':
+                    this.clearValue('@firstNameTextInput');
                     this.setValue('@firstNameTextInput', person[field]);
                     break;
                 case 'lastName':
+                    this.clearValue('@lastNameTextInput');
                     this.setValue('@lastNameTextInput', person[field]);
                     break;
                 case 'startDate': {
+                    this.clearValue('@startDatePicker');
                     let dateToSet = person[field] === ('CURRENT_DATE') ?
                         date_generator.getCurrentDate() :
                         person[field];
@@ -25,6 +28,7 @@ let createLongTermAccommodationForPersonCommands = {
                     break;
                 }
                 case 'endDate': {
+                    this.clearValue('@endDatePicker');
                     let dateToSet = person[field]=== ('CURRENT_DATE')  ?
                         date_generator.getCurrentDate(3) :
                         person[field];
@@ -32,15 +36,19 @@ let createLongTermAccommodationForPersonCommands = {
                     break;
                 }
                 case 'birthDate':
+                    this.clearValue('@birthDatePicker');
                     this.setValue('@birthDatePicker', person[field]);
                     break;
                 case 'idCard':
+                    this.clearValue('@identCardTextInput');
                     this.setValue('@identCardTextInput', person[field]);
                     break;
                 case 'street':
+                    this.clearValue('@streetTextInput');
                     this.setValue('@streetTextInput', person[field]);
                     break;
                 case 'city':
+                    this.clearValue('@cityTextInput');
                     this.setValue('@cityTextInput', person[field]);
                     break;
                 case 'country':
@@ -53,6 +61,7 @@ let createLongTermAccommodationForPersonCommands = {
                     this.setValue('@zipTextInput', person[field]);
                     break;
                 case 'email':
+                    this.clearValue('@emailTextInput');
                     this.setValue('@emailTextInput', person[field]);
                     break;
                 case 'accommodationCategory':

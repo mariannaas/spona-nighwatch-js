@@ -39,7 +39,8 @@ module.exports = {
         createLongTermAccommodationPage.submitLongTermReservation('correct_data_test_current_month_date.json');
         let personCardPage = client.page.longterm_accommodation_person_card();
         personCardPage.expect.element('@personCardHeader').to.be.present.after(2000);
-        personCardPage.expect.element('@personCardHeader').to.contain.text('Ubytovacia Karta');
+        personCardPage.expect.element('@personCardHeader').to.contain.text('Ubytovacia Karta').after(2000);
+        client.pause(5000);
     }
 
 };
