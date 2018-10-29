@@ -1,11 +1,14 @@
 const pathToTestData = './test_data/longterm/%s';
 const fs = require('fs');
 let util = require('util');
+let date_generator = require('../utils/date_generator.js')
 
 let createLongTermAccommodationForPersonCommands = {
     submitLongTermReservation: function (fileName) {
         let rawData = fs.readFileSync(util.format(pathToTestData, fileName));
         let person = JSON.parse(rawData);
+
+
         for (let field in person) {
             switch (field) {
                 case 'firstName':
@@ -14,17 +17,25 @@ let createLongTermAccommodationForPersonCommands = {
                 case 'lastName':
                     this.setValue('@lastNameTextInput', person[field]);
                     break;
-                case 'startDate':
-                    this.setValue('@startDatePicker', person[field]);
+                case 'startDate': {
+                    let dateToSet = person[field] === ('CURRENT_DATE') ?
+                        date_generator.getCurrentDate() :
+                        person[field];
+                    this.setValue('@startDatePicker', dateToSet);
                     break;
-                case 'endDate':
-                    this.setValue('@endDatePicker', person[field]);
+                }
+                case 'endDate': {
+                    let dateToSet = person[field]=== ('CURRENT_DATE')  ?
+                        date_generator.getCurrentDate(3) :
+                        person[field];
+                    this.setValue('@endDatePicker', dateToSet);
+                    break;
+                }
+                case 'birthDate':
+                    this.setValue('@birthDatePicker', person[field]);
                     break;
                 case 'idCard':
                     this.setValue('@identCardTextInput', person[field]);
-                    break;
-                case 'birthDate':
-                    this.setValue('@birthDatePicker', person[field]);
                     break;
                 case 'street':
                     this.setValue('@streetTextInput', person[field]);

@@ -34,6 +34,12 @@ module.exports = {
     'Try to submit long term with invalid birth date': function () {
         createLongTermAccommodationPage.submitLongTermReservation('invalid_birth_date_test.json');
         createLongTermAccommodationPage.expect.element('@alertMessageText').to.be.present.after(3000);
+    },
+    'Submit long term - current date': function (client) {
+        createLongTermAccommodationPage.submitLongTermReservation('correct_data_test_current_month_date.json');
+        let personCardPage = client.page.longterm_accommodation_person_card();
+        personCardPage.expect.element('@personCardHeader').to.be.present.after(2000);
+        personCardPage.expect.element('@personCardHeader').to.contain.text('Ubytovacia Karta');
     }
 
 };

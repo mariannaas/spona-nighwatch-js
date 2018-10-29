@@ -12,6 +12,7 @@
   "author": "MS",
   "license": "ISC",
   "dependencies": {
+    "datejs": "^1.0.0-rc3",
     "nightwatch": "file:nightwatch",
     "nightwatch-commands": "^3.0.0"
   }
