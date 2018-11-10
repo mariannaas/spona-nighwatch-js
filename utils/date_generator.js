@@ -4,6 +4,7 @@ let currentDate = {
 
     getCurrentDate: function () {
         let currentDate = new Date();
+
         return this.getFormattedDate(currentDate);
     },
 
@@ -12,6 +13,7 @@ let currentDate = {
         let dd = currentDate.getDate();
         let mm = currentDate.add(months).month().getMonth();
         let yyyy = currentDate.getFullYear();
+
         return this.getFormattedDate(new Date(yyyy, mm, dd));
     },
 
@@ -20,6 +22,7 @@ let currentDate = {
         let dd = newDate.getDate() + 1;
         let mm = newDate.add(months).month().getMonth();
         let yyyy = newDate.getFullYear() + 1;
+
         return this.getFormattedDate(new Date(yyyy, mm, dd));
     },
 
@@ -33,6 +36,7 @@ let currentDate = {
         if (mm < 10) {
             mm = '0' + mm
         }
+
         return dd + '.' + mm + '.' + yyyy;
     },
 
@@ -40,6 +44,7 @@ let currentDate = {
         let dd = parseInt(dateString.toString().substring(0, 2)) - 1;
         let mm = parseInt(dateString.toString().substring(3, 5)) - 1;
         let yyyy = parseInt(dateString.toString().substring(6, 10)) - 1;
+
         return new Date(yyyy, mm, dd);
     }
 

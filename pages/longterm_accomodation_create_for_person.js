@@ -91,10 +91,7 @@ let createLongTermAccommodationForPersonCommands = {
             .setValue('#end_Date', "", function () {
                 let updatedDate = date_generator.getDateAndAddXMonths(newDate, months);
                 this.setValue('#end_Date', [updatedDate, this.Keys.ENTER])
-
             });
-
-
     },
     clickElementOnThePage: function (name) {
         let element = util.format(elementFormat, name);
