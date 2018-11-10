@@ -16,7 +16,7 @@ module.exports = {
         createLongTermAccommodationPage.navigate();
     },
     after(client) {
-     //   client.end();
+        client.end();
     },
 
     tags: ['longTermAgreement', 'sanity'],
@@ -29,7 +29,6 @@ module.exports = {
         personCardPage.clickElementOnThePage('editPersonDetailsButton');
         client.pause(2000);
         createLongTermAccommodationPage.updateEndDateOfAgreement(3);
-        personCardPage.expect.element('@personCardHeader').to.contain.text('Ubytovacia Karta').after(3000);
-
+        personCardPage.expect.element('@pdfAdditionalAgreement').to.be.present.after(3000);
     },
 };
