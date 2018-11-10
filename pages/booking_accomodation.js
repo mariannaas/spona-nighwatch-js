@@ -1,5 +1,4 @@
 let bookingAccomodationCommands = {
-
 };
 
 module.exports = {

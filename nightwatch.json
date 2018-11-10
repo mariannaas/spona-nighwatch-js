@@ -11,11 +11,11 @@
   "test_workers" : false,
 
   "selenium" : {
-    "start_process" : false,
-    "server_path" : "",
+    "start_process" : true,
+    "server_path" : "./selenium/selenium.jar",
     "log_path" : "",
     "host" : "127.0.0.1",
-    "port" : 4444,
+    "port" : 4445,
     "cli_args" : {
       "webdriver.chrome.driver" : "./selenium/chromedriver.exe",
       "webdriver.ie.driver" : "",
@@ -27,7 +27,7 @@
     "default" : {
       "launch_url": "http://ubytovanie.sponadev.qity.sk/",
       "selenium_host": "127.0.0.1",
-      "selenium_port": 4444,
+      "selenium_port": 4445,
       "silent": true,
       "disable_colors": false,
       "screenshots": {

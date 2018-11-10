@@ -1,9 +1,12 @@
 const pathToTestData = './test_data/longterm/%s';
 const fs = require('fs');
 let util = require('util');
-let date_generator = require('../utils/date_generator.js')
+let date_generator = require('../utils/date_generator.js');
+const elementFormat = '@%s';
+let newDate;
 
 let createLongTermAccommodationForPersonCommands = {
+
     submitLongTermReservation: function (fileName) {
         let rawData = fs.readFileSync(util.format(pathToTestData, fileName));
         let person = JSON.parse(rawData);
@@ -29,10 +32,10 @@ let createLongTermAccommodationForPersonCommands = {
                 }
                 case 'endDate': {
                     this.clearValue('@endDatePicker');
-                    let dateToSet = person[field]=== ('CURRENT_DATE')  ?
-                        date_generator.getCurrentDate(3) :
+                    let endDateToSet = person[field] === ('CURRENT_DATE') ?
+                        date_generator.getCurrentDateAndXMonths(2) :
                         person[field];
-                    this.setValue('@endDatePicker', dateToSet);
+                    this.setValue('@endDatePicker', endDateToSet);
                     break;
                 }
                 case 'birthDate':
@@ -79,8 +82,25 @@ let createLongTermAccommodationForPersonCommands = {
         }
         this.click('@submitReservationButton');
         return this;
-    }
+    },
+    updateEndDateOfAgreement: function (months) {
+        this.getValue('#end_Date', function (result) {
+            newDate = result.value;
+        });
+        this.clearValue('#end_Date')
+            .setValue('#end_Date', "", function () {
+                let updatedDate = date_generator.getDateAndAddXMonths(newDate, months);
+                this.setValue('#end_Date', [updatedDate, this.Keys.ENTER])
 
+            });
+
+
+    },
+    clickElementOnThePage: function (name) {
+        let element = util.format(elementFormat, name);
+        this.click(element);
+        return this;
+    },
 };
 
 module.exports = {

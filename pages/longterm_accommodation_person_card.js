@@ -18,5 +18,19 @@ module.exports = {
             selector: '//h3[@class="sectionHeaderText"]',
             locateStrategy: 'xpath'
         },
-    }
+        pdfResidenceAgrement:{
+            selector: '//*[text()[contains(.,"Zmluva o ubytovaní")]]',
+            locateStrategy: 'xpath'
+        },
+        pdfAdditionalAgreement: {
+            selector: '//*[text()[contains(.,"Dodatková zmluva")]]',
+            locateStrategy: 'xpath'
+        },
+        editPersonDetailsButton:{
+            selector:'//a[@class="btn btn-sm btn-success"]',
+            locateStrategy: 'xpath'
+        }
+      }
+
+
 };
