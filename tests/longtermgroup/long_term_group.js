@@ -17,7 +17,7 @@ module.exports = {
         createLongTermAccommodationPage = client.page.longterm_accomodation_create_for_person();
         createLongTermAccommodationPage.navigate();
     },
-    
+
     after(client) {
         client.end();
     },
