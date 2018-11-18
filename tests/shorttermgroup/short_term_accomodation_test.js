@@ -22,9 +22,16 @@ module.exports = {
         client.end();
     },
 
-    tags: ['shortTerm','sanity'],
-    'Short term accomodation simple test' : function (client) {
-        createShortTermAccommodationPage.expect.element('@firstNameTextInput').to.be.visible;
+    tags: ['shortTerm', 'sanity'],
+    'Short term accomodation simple test': function (client) {
+        createShortTermAccommodationPage.createShortTermReservation('correct_data_test_current_month_date.json');
+        let shortTermAccommodationPage = client.page.shortterm_accomodation();
+        shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
+        shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Rezervované');
+        shortTermAccommodationPage.clickEditButtonInFirstTableRow();
+        client.pause(2000);
+        createShortTermAccommodationPage.confirmShortTermResidentIdentiy('correct_data_test_current_month_date.json')
+
     }
 
 };

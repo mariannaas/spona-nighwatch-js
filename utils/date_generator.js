@@ -7,6 +7,14 @@ let currentDate = {
 
         return this.getFormattedDate(currentDate);
     },
+    getCurrentDateAndXDays: function (days) {
+        let currentDate = new Date();
+        let dd = currentDate.add(days).day().getDate();
+        let mm = currentDate.getMonth();
+        let yyyy = currentDate.getFullYear();
+
+        return this.getFormattedDate(new Date(yyyy, mm, dd));
+    },
 
     getCurrentDateAndXMonths: function (months) {
         let currentDate = new Date();

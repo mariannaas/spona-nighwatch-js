@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "datejs": "^1.0.0-rc3",
+    "faker": "^4.1.0",
     "nightwatch-commands": "^3.0.0"
   },
   "devDependencies": {

@@ -1,0 +1,16 @@
+{
+  "firstName": "Emil",
+  "lastName": "Svensson",
+  "fromDate": "CURRENT_DATE",
+  "toDate":"CURRENT_DATE",
+  "roomID":"104",
+  "idCard": "HF99999",
+  "birthDate": "19.11.1995",
+  "street":"Test Avenue 5",
+  "city":"New York",
+  "zip":"61105",
+  "country":"Slovenská republika",
+  "visa": "Blue Card",
+  "visitPurpose": "Work",
+  "email":"test@testskspona.com"
+}

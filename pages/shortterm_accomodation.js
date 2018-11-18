@@ -1,42 +1,36 @@
-let shortTermAccomodationCommands = {
-    createShortTermAccommodation: function (name) {
-        let element = util.format(elementFormat,name);
-        this.click(element);
-        return this;
-    }
+let util = require('util');
+let tableXPath = '//table/tbody/tr[1]';
 
+let shortTermAccommodationCommands = {
+
+    checkShortTermTableFirstRowForReservationStatus: function (status) {
+        this.assert.containsText('@shortTermAccommodationTableFirstRowStatus', status, 'The expected status was found '+ status);
+        return this;
+    },
+    clickEditButtonInFirstTableRow: function () {
+        return this.click('@shortTermAccommodationTableFirstRowEditButton');
+    }
 };
 
+
 module.exports = {
+
     url: 'http://ubytovanie.sponadev.qity.sk/sresidence',
-    commands: [shortTermAccomodationCommands],
+
+    commands: [shortTermAccommodationCommands],
+
     elements: {
-        shortTermAccomodationCreateButton: {
-            selector: "//a[contains(@href, 'http://ubytovanie.sponadev.qity.sk/sresidence/create')]",
+
+        header: {
+            selector:'.sectionHeaderText'
+        },
+        shortTermAccommodationTableFirstRowStatus: {
+            selector: tableXPath + '/td/button',
             locateStrategy: 'xpath'
         },
-        reserveFromDatePicker: {
-            selector: '#from_date'
-        },
-        reserveToDatePicker: {
-            selector: '#to_date'
-        },
-        firstNameTextInput:{
-            selector: '#first_name'
-        },
-        lastNameTextInput:{
-            selector: '#last_name'
-        },
-        roomIdSelector:{
-            selector: '#room_id'
-        },
-        notesTextInput:{
-            selector: '#notes'
-        },
-        submitReservationButton:{
-            selector: '//input[@value="Pridať rezerváciu"]',
+        shortTermAccommodationTableFirstRowEditButton: {
+            selector: tableXPath + '/td[@class="tools"]/a',
             locateStrategy: 'xpath'
         }
-
     }
-}
+};
