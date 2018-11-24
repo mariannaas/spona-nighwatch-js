@@ -30,8 +30,14 @@ module.exports = {
         shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Rezervované');
         shortTermAccommodationPage.clickEditButtonInFirstTableRow();
         client.pause(2000);
-        createShortTermAccommodationPage.confirmShortTermResidentIdentiy('correct_data_test_current_month_date.json')
-
+        createShortTermAccommodationPage.confirmShortTermResidentIdentiy('correct_data_test_current_month_date.json');
+        shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
+        shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Potvrdené');
+        shortTermAccommodationPage.clickEditButtonInFirstTableRow();
+        client.pause(2000);
+        createShortTermAccommodationPage.confirmPrice(15);
+        shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
+        shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Predpis');
     }
 
 };

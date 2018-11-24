@@ -10,7 +10,7 @@ let shortTermAccomodationCreateCommands = {
     createShortTermReservation: function (fileName) {
         let rawData = fs.readFileSync(util.format(pathToTestData, fileName));
         let person = JSON.parse(rawData);
-        let genders = [ 'female' , 'male' ];
+        let genders = ['female', 'male'];
         let gender = fake_data.random.arrayElement(genders);
 
         this.clearValue('@firstNameTextInput');
@@ -87,7 +87,13 @@ let shortTermAccomodationCreateCommands = {
         this.click('@submitIdentityConfirmation');
         return this;
     },
+    confirmPrice: function (price) {
+        this.clearValue('@pricePerNightTextInput');
+        this.setValue('@pricePerNightTextInput', price);
 
+        this.click('@submitPrice');
+        return this;
+    },
 
 };
 module.exports = {
@@ -149,6 +155,13 @@ module.exports = {
             selector: '//input[@value="Uložiť potvrdenie"]',
             locateStrategy: 'xpath'
         },
+        pricePerNightTextInput: {
+            selector: '#price_per_night'
+        },
+        submitPrice: {
+            selector: '//input[@value="Uložiť predpis"]',
+            locateStrategy: 'xpath'
+        }
 
     }
 
