@@ -95,6 +95,8 @@ let shortTermAccomodationCreateCommands = {
         return this;
     },
 
+
+
 };
 module.exports = {
     url: 'http://ubytovanie.sponadev.qity.sk/sresidence/create',
@@ -162,8 +164,6 @@ module.exports = {
             selector: '//input[@value="Uložiť predpis"]',
             locateStrategy: 'xpath'
         }
-
     }
-
 
 };

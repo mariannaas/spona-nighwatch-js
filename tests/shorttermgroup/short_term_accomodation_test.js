@@ -4,6 +4,7 @@ let createShortTermAccommodationPage;
 module.exports = {
 
     before(client) {
+        client.maximizeWindow();
         const loginPage = client.page.login_spona();
         loginPage.navigate();
         loginPage.loginToSystem(config.admin.email, config.admin.password);
@@ -33,11 +34,13 @@ module.exports = {
         createShortTermAccommodationPage.confirmShortTermResidentIdentiy('correct_data_test_current_month_date.json');
         shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
         shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Potvrdené');
+        client.pause(2000);
         shortTermAccommodationPage.clickEditButtonInFirstTableRow();
         client.pause(2000);
-        createShortTermAccommodationPage.confirmPrice(15);
-        shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
+        createShortTermAccommodationPage.confirmPrice('15');
+        shortTermAccommodationPage.expect.element('@formulaPdf').to.be.present.after(2000);
         shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Predpis');
+
     }
 
 };
