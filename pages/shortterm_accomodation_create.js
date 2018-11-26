@@ -7,49 +7,23 @@ let fake_data = require('faker');
 
 let shortTermAccomodationCreateCommands = {
 
-    createShortTermReservation: function (fileName) {
-        let rawData = fs.readFileSync(util.format(pathToTestData, fileName));
-        let person = JSON.parse(rawData);
+    createShortTermReservation: function () {
         let genders = ['female', 'male'];
         let gender = fake_data.random.arrayElement(genders);
 
         this.clearValue('@firstNameTextInput');
         this.setValue('@firstNameTextInput', fake_data.name.firstName(gender));
-
         this.clearValue('@lastNameTextInput');
         this.setValue('@lastNameTextInput', fake_data.name.lastName(gender));
+        this.clearValue('@fromDatePicker');
+        this.setValue('@fromDatePicker', date_generator.getCurrentDate());
+        this.clearValue('@toDatePicker');
+        this.setValue('@toDatePicker', date_generator.getCurrentDateAndXDays(3));
 
-        for (let field in person) {
-            switch (field) {
-                case 'fromDate': {
-                    this.clearValue('@fromDatePicker');
-                    let dateToSet = person[field] === ('CURRENT_DATE') ?
-                        date_generator.getCurrentDate() :
-                        person[field];
-                    this.setValue('@fromDatePicker', dateToSet);
-                    break;
-                }
-                case 'toDate': {
-                    this.clearValue('@toDatePicker');
-                    let endDateToSet = person[field] === ('CURRENT_DATE') ?
-                        date_generator.getCurrentDateAndXDays(3) :
-                        person[field];
-                    this.setValue('@toDatePicker', endDateToSet);
-                    break;
-                }
-                case 'roomID':
-                    this.clearValue('@roomIdSelector');
-                    this.setValue('@roomIdSelector', person[field]);
-                    break;
-
-                default:
-                    break;
-            }
-        }
         this.click('@submitReservationButton');
         return this;
     },
-    confirmShortTermResidentIdentiy: function (fileName) {
+    confirmShortTermResidentIdentity: function (fileName) {
         let rawData = fs.readFileSync(util.format(pathToTestData, fileName));
         let person = JSON.parse(rawData);
 
@@ -79,7 +53,18 @@ let shortTermAccomodationCreateCommands = {
                     this.clearValue('@countryDropDown');
                     this.setValue('@countryDropDown', person[field]);
                     break;
-
+                case 'birthCountry':
+                    this.clearValue('@birthCountryTextInput');
+                    this.setValue('@birthCountryTextInput', person[field]);
+                    break;
+                case 'birthDate':
+                    this.clearValue('@birthDatePicker');
+                    this.setValue('@birthDatePicker', person[field]);
+                    break;
+                case 'visitPurpose':
+                    this.clearValue('@visitPurposeTextInput');
+                    this.setValue('@visitPurposeTextInput', person[field]);
+                    break;
                 default:
                     break;
             }
@@ -94,7 +79,6 @@ let shortTermAccomodationCreateCommands = {
         this.click('@submitPrice');
         return this;
     },
-
 
 
 };

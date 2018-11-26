@@ -24,14 +24,14 @@ module.exports = {
     },
 
     tags: ['shortTerm', 'sanity'],
-    'Short term accomodation simple test': function (client) {
-        createShortTermAccommodationPage.createShortTermReservation('correct_data_test_current_month_date.json');
+    'Short term accomodation for Slovak students': function (client) {
+        createShortTermAccommodationPage.createShortTermReservation();
         let shortTermAccommodationPage = client.page.shortterm_accomodation();
         shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
         shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Rezervované');
         shortTermAccommodationPage.clickEditButtonInFirstTableRow();
         client.pause(2000);
-        createShortTermAccommodationPage.confirmShortTermResidentIdentiy('correct_data_test_current_month_date.json');
+        createShortTermAccommodationPage.confirmShortTermResidentIdentity('slovak_id.json');
         shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
         shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Potvrdené');
         client.pause(2000);
@@ -39,6 +39,25 @@ module.exports = {
         client.pause(2000);
         createShortTermAccommodationPage.confirmPrice('15');
         shortTermAccommodationPage.expect.element('@formulaPdf').to.be.present.after(2000);
+        shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Predpis');
+
+    },
+    'Short term accomodation for foreign students': function (client) {
+        createShortTermAccommodationPage.createShortTermReservation();
+        let shortTermAccommodationPage = client.page.shortterm_accomodation();
+        shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
+        shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Rezervované');
+        shortTermAccommodationPage.clickEditButtonInFirstTableRow();
+        client.pause(2000);
+        createShortTermAccommodationPage.confirmShortTermResidentIdentity('foreign_id.json');
+        shortTermAccommodationPage.expect.element('@header').to.be.present.after(2000);
+        shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Potvrdené');
+        client.pause(2000);
+        shortTermAccommodationPage.clickEditButtonInFirstTableRow();
+        client.pause(2000);
+        createShortTermAccommodationPage.confirmPrice('15');
+        shortTermAccommodationPage.expect.element('@formulaPdf').to.be.present.after(2000);
+        shortTermAccommodationPage.expect.element('@noticeOfStay').to.be.present.after(2000);
         shortTermAccommodationPage.checkShortTermTableFirstRowForReservationStatus('Predpis');
 
     }

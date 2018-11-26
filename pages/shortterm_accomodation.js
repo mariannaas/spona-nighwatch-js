@@ -42,5 +42,5 @@ module.exports = {
             locateStrategy: 'xpath'
         }
     }
-    
+
 };

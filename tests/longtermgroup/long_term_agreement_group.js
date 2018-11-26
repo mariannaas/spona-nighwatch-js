@@ -21,7 +21,7 @@ module.exports = {
 
     tags: ['longTermAgreement', 'sanity'],
     'Submit long term - check if additional agreement is generated': function (client) {
-        createLongTermAccommodationPage.submitLongTermReservation('correct_data_test_current_month_date.json');
+        createLongTermAccommodationPage.submitLongTermReservation('slovak_id.json');
         let personCardPage = client.page.longterm_accommodation_person_card();
         personCardPage.expect.element('@personCardHeader').to.be.present.after(2000);
         personCardPage.expect.element('@personCardHeader').to.contain.text('Ubytovacia Karta');
