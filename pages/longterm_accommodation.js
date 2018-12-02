@@ -11,7 +11,9 @@ let longTermAccomodationCommands = {
 };
 
 module.exports = {
-  url: 'http://ubytovanie.sponadev.qity.sk/lresidence',
+  url: function () {
+    return this.api.launchUrl + '/lresidence';
+  },
   commands: [longTermAccomodationCommands],
   elements: {
     longTermAccomodationCreateButton: {
