@@ -1,3 +1,6 @@
 node_modules
 reports
 .idea
+selenium-debug.log
+nightwatch.json
+tests/config.json

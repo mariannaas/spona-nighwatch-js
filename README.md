@@ -7,6 +7,10 @@ Before running tests mke sure you have installed chromedriver on your machine.
 
 > Note: For selenium CLI arguments of webdriver.chrome.driver use: "/usr/bin/chromedriver" (linux) and "./selenium/selenium.jar" (windows).
 
+#### Configure user roles
+1. Copy and rename `test/config.json.example` to `tests/config.json`
+2. Add user credentials for each role
+
 #### Starting test suite:
 
 1. Run: `node nightwatch.js --group logingroup`
