@@ -12,6 +12,6 @@ Before running tests mke sure you have installed chromedriver on your machine.
 2. Add user credentials for each role
 
 #### Starting test suite:
-
-1. Run: `node nightwatch.js --group logingroup`
+* Run: `npm run test` for running all tests.
+* Run: `npm run test{test group}` to execute group of test.
 
