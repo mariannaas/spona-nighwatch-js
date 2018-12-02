@@ -25,7 +25,7 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url": "http://ubytovanie.sponadev.qity.sk/",
+      "launch_url": "http://ubytovanie.sponadev.qity.sk",
       "selenium_host": "127.0.0.1",
       "selenium_port": 4445,
       "silent": true,
