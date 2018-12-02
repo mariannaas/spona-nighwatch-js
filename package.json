@@ -7,7 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "node nightwatch.js"
+    "test": "node nightwatch.js",
+    "testloginGroup": "node nightwatch.js --group logingroup",
+    "testlongTermGroup": "node nightwatch.js --group longtermgroup",
+    "testshortTermGroup": "node nightwatch.js --group shorttermgroup"
   },
   "author": "MS",
   "license": "ISC",
